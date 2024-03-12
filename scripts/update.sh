@@ -36,8 +36,8 @@ main() {
   if [[ "$3" == "--force" ]]; then
     if git branch | grep "${PROFILE_GENERATOR_UPDATE_BRANCH}"; then
       set +eo pipefail
-      git checkout master
-      git reset origin/master
+      git checkout main
+      git reset origin/main
       git clean -fd .
       git branch -D "${PROFILE_GENERATOR_UPDATE_BRANCH}"
       rm -rf .git/cookiecutter

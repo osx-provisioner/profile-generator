@@ -37,7 +37,7 @@ An OSX machine is of course the best platform to development your profile on, al
 
 You'll need [Python](https://www.python.org/) **3.9** or later, and a container runtime environment such as [Docker](https://www.docker.com/) or [Colima](https://github.com/abiosoft/colima) is strongly recommended.
 
-Please see the complete template guide [here](https://github.com/osx-provisioner/profile-generator/blob/master/README.md#requirements).
+Please see the complete template guide [here](https://github.com/osx-provisioner/profile-generator/blob/main/README.md#requirements).
 
 ## This Looks Complicated, How Can I Customize It?
 
@@ -139,7 +139,7 @@ The python library [pre-commit](https://pre-commit.com/) is installed during tem
 
 **This hooks depend on the presence of a container runtime such as [Docker](https://www.docker.com/) or [Colima](https://github.com/abiosoft/colima) on your development machine.**
 
-Complete documentation on these hooks can be found [here](https://github.com/osx-provisioner/profile-generator/blob/master/README.md#pre-commit-git-hooks).
+Complete documentation on these hooks can be found [here](https://github.com/osx-provisioner/profile-generator/blob/main/README.md#pre-commit-git-hooks).
 
 ## Restricted Paths
 

@@ -21,12 +21,12 @@ on:
 jobs:
 
   configuration:
-    uses: niall-byrne/cicd-tools/.github/workflows/job-00-cookiecutter-read_configuration.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-00-cookiecutter-read_configuration.yml@main
 
   start:
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-00-generic-notification.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-00-generic-notification.yml@main
     with:
       NOTIFICATION_EMOJI: ":vertical_traffic_light:"
       NOTIFICATION_MESSAGE: "workflow has started!"
@@ -35,7 +35,7 @@ jobs:
     needs: [configuration]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-10-generic-security_scan_credentials.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-10-generic-security_scan_credentials.yml@main
     with:
       VERBOSE_NOTIFICATIONS: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_VERBOSE_NOTIFICATIONS }}
 
@@ -43,7 +43,7 @@ jobs:
     needs: [configuration]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-30-cookiecutter-markdown_links.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-30-cookiecutter-markdown_links.yml@main
     with:
       CONCURRENCY: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
       CONFIG_FILE: "{{cookiecutter.project_slug}}/.github/config/actions/gaurav-nelson-github-action-markdown-link-check.json"
@@ -54,7 +54,7 @@ jobs:
     needs: [configuration]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-50-cookiecutter-test_precommit_hooks.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-50-cookiecutter-test_precommit_hooks.yml@main
     with:
       CONCURRENCY: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
       ENABLED_PRECOMMIT_CHECKS: '["test_ansible_lint_fails", "test_commit_lint_fails", "test_commit_spelling_fails", "test_credentials_fails", "test_shell_lint_fails", "test_shell_format_fails", "test_toml_lint_fails", "test_toml_lint_passes", "test_workflow_lint_fails", "test_workflow_header_lint_fails"]'
@@ -66,7 +66,7 @@ jobs:
     needs: [configuration]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-40-cookiecutter-ansible_lint.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-40-cookiecutter-ansible_lint.yml@main
     with:
       CONCURRENCY: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
       GALAXY_REQUIREMENTS_PATH: "profile/requirements.yml"
@@ -78,7 +78,7 @@ jobs:
     needs: [configuration]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-poetry-rev_range_command.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-poetry-rev_range_command.yml@main
     with:
       COMMAND: |
         poetry run cz check --rev-range "${PUSHED_COMMIT_REV_RANGE}"
@@ -92,7 +92,7 @@ jobs:
     needs: [configuration]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-poetry-rev_range_command.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-poetry-rev_range_command.yml@main
     with:
       COMMAND: |
         CICD_COMMIT_MESSAGES_FILE="$(mktemp XXXXXXXX.git_history_file)"
@@ -108,7 +108,7 @@ jobs:
     needs: [configuration]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-80-poetry-precommit_commit_stage_hook.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-poetry-precommit_commit_stage_hook.yml@main
     with:
       CONCURRENCY: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
       PRECOMMIT_HOOK_ID: "check-jsonschema"
@@ -120,7 +120,7 @@ jobs:
     needs: [configuration]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@main
     with:
       CONCURRENCY: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
       PRECOMMIT_HOOK_ID: "lint-markdown"
@@ -132,7 +132,7 @@ jobs:
     needs: [configuration]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@main
     with:
       CONCURRENCY: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
       PRECOMMIT_HOOK_ID: "spelling-markdown"
@@ -153,7 +153,7 @@ jobs:
           - id: "lint-shell"
             name: "Shell Linting"
       max-parallel: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@main
     with:
       CONCURRENCY: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
       PRECOMMIT_HOOK_ID: ${{ matrix.hook.id }}
@@ -165,7 +165,7 @@ jobs:
     needs: [configuration]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@main
     with:
       CONCURRENCY: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
       PRECOMMIT_HOOK_ID: "format-toml"
@@ -185,7 +185,7 @@ jobs:
           - id: "lint-github-workflow-header"
             name: "Workflow Header Linting"
       max-parallel: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@main
     with:
       CONCURRENCY: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
       PRECOMMIT_HOOK_ID: ${{ matrix.hook.id }}
@@ -197,7 +197,7 @@ jobs:
     needs: [configuration]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-80-cookiecutter-precommit_commit_stage_hook.yml@main
     with:
       CONCURRENCY: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
       PRECOMMIT_HOOK_ID: "yamllint"
@@ -212,7 +212,7 @@ jobs:
       REMOTE_TOKEN: ${{ secrets.REMOTE_TOKEN }}
       REMOTE_ORIGIN: ${{ secrets.REMOTE_ORIGIN }}
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-60-cookiecutter-remote_push.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-60-cookiecutter-remote_push.yml@main
     with:
       CONCURRENCY: ${{ fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_CONCURRENCY }}
       PYTHON_VERSIONS: ${{ toJSON(fromJSON(needs.configuration.outputs.COOKIECUTTER_CONFIGURATION)._GITHUB_CI_DEFAULT_PYTHON_VERSIONS) }}
@@ -229,7 +229,7 @@ jobs:
     secrets:
       REMOTE_ORIGIN: ${{ secrets.REMOTE_ORIGIN }}
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-95-mac_maker-apply_profile.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-95-mac_maker-apply_profile.yml@main
     with:
       CACHE_FOLDERS: |
         ~/.asdf
@@ -246,17 +246,17 @@ jobs:
     needs: [configuration, mac_maker_apply_test]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-99-poetry-create_release.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-99-poetry-create_release.yml@main
     with:
       APPENDED_CONTENT: |
         ## Release Checklist
-        - [] Ensure master is synchronized with the release tag.
+        - [] Ensure main is synchronized with the release tag.
 
   success:
     needs: [create_release]
     secrets:
       SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-    uses: niall-byrne/cicd-tools/.github/workflows/job-00-generic-notification.yml@master
+    uses: cicd-tools-org/cicd-tools/.github/workflows/job-00-generic-notification.yml@main
     with:
       NOTIFICATION_EMOJI: ":checkered_flag:"
       NOTIFICATION_MESSAGE: "workflow has completed successfully!"
