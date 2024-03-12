@@ -9,8 +9,8 @@
 
 The configuration files themselves comprise a customized [Ansible](https://www.ansible.com/) playbook, allowing you to leverage Ansible's robust tool chain with minimal fuss.
 
-##### Master Branch (Follows the latest production tag)
-[![profile-generator-template-test](https://github.com/osx-provisioner/profile-generator/actions/workflows/workflow-template-test.yml/badge.svg?branch=master)](https://github.com/osx-provisioner/profile-generator/actions/workflows/workflow-template-test.yml)
+##### Main Branch (Follows the latest production tag)
+[![profile-generator-template-test](https://github.com/osx-provisioner/profile-generator/actions/workflows/workflow-template-test.yml/badge.svg?branch=main)](https://github.com/osx-provisioner/profile-generator/actions/workflows/workflow-template-test.yml)
 
 ##### Dev Branch
 [![profile-generator-template-test](https://github.com/osx-provisioner/profile-generator/actions/workflows/workflow-template-test.yml/badge.svg?branch=dev)](https://github.com/osx-provisioner/profile-generator/actions/workflows/workflow-template-test.yml)
@@ -144,7 +144,7 @@ These hooks all rely on 3rd party software to perform different types of static 
 - Other steps require the use of binaries that you may not be familiar with.  (See the [complete list](#default-pre-commit-hooks) in the next section.)
 
 To simplify the process of seamlessly installing these 3rd party tools we leverage containers:
-- [CICD-Tools](https://github.com/cicd-tools-org/cicd-tools) provides several vetted binaries via its own [container](https://github.com/cicd-tools-org/cicd-tools/blob/master/.cicd-tools/container/Dockerfile).
+- [CICD-Tools](https://github.com/cicd-tools-org/cicd-tools) provides several vetted binaries via its own [container](https://github.com/cicd-tools-org/cicd-tools/blob/main/.cicd-tools/container/Dockerfile).
 - There are additional binary tools configured to run in 3rd party containers following this same paradigm.
 
 **For this reason we strongly recommend installing a container runtime such as [Docker](https://www.docker.com/) or [Colima](https://github.com/abiosoft/colima) on your development machine.**
@@ -228,9 +228,9 @@ The values you've entered into the [cookiecutter template](cookiecutter.json) de
 #### ii. Connecting Your New Repository
 
 Connect your new remote repository and push:
-- Checkout the `master` branch: `git checkout master`
+- Checkout the `main` branch: `git checkout main`
 - Add the new remote origin: `git remote add origin git@github.com:\<your_github_handle\>/\<your_project_slug\>.git`
-- Push to the new remote origin: `git push -u origin master`
+- Push to the new remote origin: `git push -u origin main`
 
 ### 3. Configuring Your Workflow
 
