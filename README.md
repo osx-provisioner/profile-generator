@@ -144,7 +144,7 @@ These hooks all rely on 3rd party software to perform different types of static 
 - Other steps require the use of binaries that you may not be familiar with.  (See the [complete list](#default-pre-commit-hooks) in the next section.)
 
 To simplify the process of seamlessly installing these 3rd party tools we leverage containers:
-- [CICD-Tools](https://github.com/cicd-tools-org/cicd-tools) provides several vetted binaries via its own [container](https://github.com/cicd-tools-org/cicd-tools/blob/main/.cicd-tools/container/Dockerfile).
+- [CICD-Tools](https://github.com/cicd-tools-org/cicd-tools) provides several vetted binaries via its own [container](https://github.com/cicd-tools-org/cicd-tools/blob/main/.cicd-tools/containers/utilities/Dockerfile).
 - There are additional binary tools configured to run in 3rd party containers following this same paradigm.
 
 **For this reason we strongly recommend installing a container runtime such as [Docker](https://www.docker.com/) or [Colima](https://github.com/abiosoft/colima) on your development machine.**
