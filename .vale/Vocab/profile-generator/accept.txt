@@ -24,6 +24,7 @@ shfmt
 templated
 tomll
 toml|TOML
+urls|URLs
 virtualenv
 yamllint
 yaml|YAML

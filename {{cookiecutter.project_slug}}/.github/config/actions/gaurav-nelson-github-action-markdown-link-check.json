@@ -15,6 +15,19 @@
   "ignorePatterns": [
     {
       "pattern": "^https://github.com/{{cookiecutter.github_handle}}/{{cookiecutter.project_slug}}/"
+    },
+    {
+      "pattern": "^https://ansible-lint.readthedocs.io/"
+    },
+    {
+      "pattern": "^https://docs.ansible.com/ansible/latest/"
+    },
+    {
+      "pattern": "^https://manpages.ubuntu.com/manpages/jammy/"
+    },
+    {
+      "pattern": "^https://molecule.readthedocs.io/"
     }
-  ]
+  ],
+  "timeout": "20s"
 }
