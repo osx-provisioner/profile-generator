@@ -50,7 +50,7 @@
       "description": "The list of Python versions that will be used in GitHub workflows.",
       "type": "array",
       "contains": {
-        "pattern": "^3\\.[0-9]$",
+        "pattern": "^3\\.[0-9]+$",
         "type": "string"
       },
       "minContains": 1

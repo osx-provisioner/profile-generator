@@ -28,7 +28,7 @@ This [cookiecutter](https://cookiecutter.readthedocs.io/) template generates a d
 An OSX machine is of course the best platform to development your profile on, although you could probably use a Linux or BSD machine in a pinch.
 
 ### Mandatory
-- You'll need [Python](https://www.python.org/) **3.9** or later to use this template.  ([Ansible](https://www.ansible.com/) now requires this.)
+- You'll need [Python](https://www.python.org/) **3.11** or later to use this template.  ([Ansible](https://www.ansible.com/) now requires this.)
 
 ### Recommended
 - A container runtime environment such as [Docker](https://www.docker.com/) or [Colima](https://github.com/abiosoft/colima) is recommended, to make use of the [configured pre-commit hooks](#pre-commit-git-hooks).

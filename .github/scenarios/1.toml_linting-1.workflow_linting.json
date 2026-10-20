@@ -14,7 +14,7 @@
     "_DOCKER_DEFAULT_CONTAINER": "ghcr.io/cicd-tools-org/cicd-tools:main",
     "_GITHUB_CI_ACTIONLINT_SCRIPT_URL": "https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash",
     "_GITHUB_CI_DEFAULT_CONCURRENCY": 4,
-    "_GITHUB_CI_DEFAULT_PYTHON_VERSIONS": ["3.9"],
+    "_GITHUB_CI_DEFAULT_PYTHON_VERSIONS": ["3.11"],
     "_GITHUB_CI_DEFAULT_VERBOSE_NOTIFICATIONS": false,
     "_GITHUB_CI_TEMPLATE_TEST_ARCHITECTURES": ["x86_64"],
     "_GITHUB_CI_TEMPLATE_TEST_BINARY_VERSIONS": ["0.0.7"],
