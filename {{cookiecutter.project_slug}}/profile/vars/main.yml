@@ -4,6 +4,10 @@ brew_user: "{{ lookup('env', 'USER') }}"
 brew_retries: 3
 brew_taps: []
 
+# Don't update homebrew (preserve existing version)
+# This is to keep execution times short on Intel machines, which will attempt to build from source code.
+brew_update_homebrew: "no"
+
 # Add Homebrew Packages You Wish To Use Here
 brew_packages:
   - bash
@@ -11,6 +15,10 @@ brew_packages:
 # Add Homebrew Casks You Wish To Use Here
 brew_casks:
   - google-chrome
+
+# Don't attempt to upgrade clamav (preserve existing version)
+# This is to keep execution times short on Intel machines, which will attempt to build from source code.
+clamav_install_state: "present"
 
 # osx_provisioner.collection.asdf
 # Add Additional Language Distributions and Versions Here

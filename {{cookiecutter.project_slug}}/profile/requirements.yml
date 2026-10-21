@@ -5,7 +5,7 @@ collections:
   - name: geerlingguy.mac
     version: ">=4.0.0,<5.0.0"
   - name: osx_provisioner.collection
-    version: ">=3.0.0,<4.0.0"
+    version: ">=3.2.0,<4.0.0"
 roles:
   - name: elliotweiser.osx-command-line-tools
     version: 2.3.0
